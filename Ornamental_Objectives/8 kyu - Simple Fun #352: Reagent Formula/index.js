@@ -12,7 +12,8 @@ material7 or  material8 must be selected(at least one, or both)
 
 Task
 
-You are given a integer array formula. Array contains only digits 1-8 that represents material 1-8. Your task is to determine if the formula is valid. Returns true if it's valid, false otherwise.
+You are given a integer array formula. Array contains only digits 1-8 that represents material 1-8. Your task is to determine if the 
+formula is valid. Returns true if it's valid, false otherwise.
 Example
 
 For formula = [1,3,7], The output should be true.
