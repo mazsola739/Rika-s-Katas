@@ -1,22 +1,14 @@
 /*
 Description:
 
-Americans are odd people: in their buildings, the first floor is actually the ground floor and there is no 13th floor (due to superstition).
+You're on your way to the market when you hear beautiful music coming from a nearby street performer. The notes come together like you wouln't believe as the musician puts together patterns of tunes. As you wonder what kind of algorithm you could use to shift octaves by 8 pitches or something silly like that, it dawns on you that you have been watching the musician for some 10 odd minutes. You ask, "How much do people normally tip for something like this?" The artist looks up. "Its always gonna be about tree fiddy."
 
-Write a function that given a floor in the american system returns the floor in the european system.
+It was then that you realize the musician was a 400 foot tall beast from the paleolithic era. The Loch Ness Monster almost tricked you!
 
-With the 1st floor being replaced by the ground floor and the 13th floor being removed, the numbers move down to take their place. In case of above 13, they move down by two because there are two omitted numbers below them.
+There are only 2 guaranteed ways to tell if you are speaking to The Loch Ness Monster: A.) It is a 400 foot tall beast from the paleolithic era B.) It will ask you for tree fiddy
 
-Basements (negatives) stay the same as the universal level.
+Since Nessie is a master of disguise, the only way accurately tell is to look for the phrase "tree fiddy". Since you are tired of being grifted by this monster, the time has come to code a solution for finding The Loch Ness Monster. Note: It can also be written as 3.50 or three fifty.
 
-More information here
-Examples
-
-1  =>  0 
-0  =>  0
-5  =>  4
-15  =>  13
--3  =>  -3
 */
 
 //My solution
