@@ -18,3 +18,16 @@ function should return a string 'NaN' if the input is not a valid number
 
 //My solution
 
+var numberToPrice = function (number) {
+  if (!number || isNaN((number = Number(number)))) {
+    return "NaN";
+  }
+  number =
+    number >= 0
+      ? Math.floor((number * 1000) / 10) / 100
+      : Math.ceil((number * 1000) / 10) / 100;
+  number = number.toFixed(2);
+  let num = number.toString().split(".");
+  num[0] = num[0].replace(/(?<=\d)(?=(\d\d\d)+(?!\d))/g, ",");
+  return num.join(".");
+};
