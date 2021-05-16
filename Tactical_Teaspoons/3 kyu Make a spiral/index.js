@@ -34,3 +34,18 @@ General rule-of-a-thumb is, that the snake made with '1' cannot touch to itself.
 
 //My solution
 
+var spiralize = function (size) {
+  let arr = Array(size)
+    .fill(0)
+    .map((i) => Array(size));
+  let oneOrZero = 1;
+  for (let j = 0; j < Math.ceil(size / 2); j++) {
+    for (let i = j; i < size - j; i++) {
+      arr[i][j] = arr[j][i] = oneOrZero;
+      arr[i][size - 1 - j] = arr[size - 1 - j][i] = oneOrZero;
+    }
+    oneOrZero = ++oneOrZero % 2;
+    arr[j + 1][j] = arr[j + 2][j] === 1 ? 0 : oneOrZero;
+  }
+  return arr;
+};
