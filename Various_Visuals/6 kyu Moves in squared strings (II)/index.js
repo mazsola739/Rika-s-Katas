@@ -59,3 +59,32 @@ The input strings are separated by , instead of \n. The ouput strings should be 
 
 //My solution
 
+function rot(strng) {
+  let rotStrng = strng
+    .split("\n")
+    .reverse()
+    .map((substrng) => substrng.split("").reverse().join(""))
+    .join("\n");
+  return rotStrng;
+}
+
+function selfieAndRot(strng) {
+  let howManyDotNeed = strng.split("\n")[0].length,
+    selfieStrng = strng
+      .split("\n")
+      .map((substrng) => substrng + `${".".repeat(howManyDotNeed)}`),
+    rotStrng = strng
+      .split("\n")
+      .reverse()
+      .map(
+        (substrng) =>
+          `${".".repeat(howManyDotNeed)}` +
+          substrng.split("").reverse().join("")
+      ),
+    selfieAndRotStrn = selfieStrng.concat(rotStrng).join("\n");
+  return selfieAndRotStrn;
+}
+
+function oper(fct, s) {
+  return fct(s);
+}
