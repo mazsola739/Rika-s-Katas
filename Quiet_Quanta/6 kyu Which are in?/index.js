@@ -26,3 +26,16 @@ Notes:
 
 //My Solution
 
+function inArray(array1, array2) {
+  let i,
+    j,
+    result = [];
+  for (i = 0; i < array1.length; i++) {
+    for (j = 0; j < array2.length; j++) {
+      if (`${array2[j]}`.includes(`${array1[i]}`)) {
+        result.push(array1[i]);
+      }
+    }
+  }
+  return [...new Set(result.sort())];
+}
