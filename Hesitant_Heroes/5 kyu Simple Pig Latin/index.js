@@ -19,3 +19,8 @@ function pigIt(str) {
     )
     .join(" ");
 }
+
+//shorthand
+
+const mapper = el => el.match(/[a-z]/gim) ? `${el.substring(1)}${el.substring(0, 1)}ay` : el
+const pigIt = str => str.split(" ").map(mapper).join(" ");
