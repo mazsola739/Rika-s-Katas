@@ -10,3 +10,17 @@ like in the original Rot13 "implementation".
 
 //My solution
 
+function rot13(message) {
+  const ABC = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXWZ";
+  const cipheredABC = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXWZABCDEFGHIJKLM";
+  return message
+    .split("")
+    .map(function (character) {
+      let index = ABC.indexOf(character);
+      if (index < 0) {
+        return character;
+      }
+      return cipheredABC[index];
+    })
+    .join("");
+}
