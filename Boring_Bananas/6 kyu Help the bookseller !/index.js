@@ -35,3 +35,17 @@ In the result codes and their values are in the same order as in M.
 
 //My solution
 
+function stockList(listOfArt, listOfCat) {
+  if (!listOfArt.length || !listOfCat.length) {
+    return "";
+  }
+  return listOfCat
+    .map((book) => {
+      const sum = listOfArt.reduce(
+        (acc, title) => acc + (title[0] === book ? +title.split(" ")[1] : 0),
+        0
+      );
+      return `(${book} : ${sum})`;
+    })
+    .join(" - ");
+}
