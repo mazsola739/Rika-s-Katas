@@ -19,3 +19,14 @@ xbonacci {1,1} produces the Fibonacci sequence
 
 //My solution
 
+function Xbonacci(signature, n) {
+  if (signature.length > n) {
+    return signature.slice(0, n);
+  }
+  let result = [...signature];
+  console.log(result)
+  for (let i = 0; result.length < n; i++) {
+    result.push(result.slice(i, result.length).reduce((a, b) => a + b, 0));
+  }
+  return result;
+}
