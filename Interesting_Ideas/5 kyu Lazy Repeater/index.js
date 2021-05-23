@@ -14,3 +14,9 @@ abc(); // should return 'a' again on this fourth call
 
 //My solution
 
+function makeLooper(str) {
+  let i=0;
+  return function() {
+    return str[(i++)%str.length];
+  };
+}
