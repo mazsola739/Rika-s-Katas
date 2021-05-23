@@ -21,3 +21,20 @@ Also see an example test fixture for suggested usage
 
 //My solution
 
+class Event {
+  constructor() {
+    this.handlers = [];
+  }
+
+  subscribe(func) {
+    this.handlers.push(func);
+  }
+
+  unsubscribe(func) {
+    this.handlers = this.handlers.filter((fun) => fun !== func);
+  }
+
+  emit(...args) {
+    this.handlers.forEach((fun) => fun(...args));
+  }
+}
