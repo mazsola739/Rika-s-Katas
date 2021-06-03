@@ -47,3 +47,42 @@ c.encode('CODEWARS'); // returns 'CODEWARS'
 
 //My solution
 
+function VigenèreCipher(key, abc) {
+  
+  this.encode = function (str) {
+    let encoded = "";
+    for (let i = 0; i < str.length; i++) {
+      let character = str[i];
+      let keycharacter = key[i % key.length];
+      if (abc.includes(character)) {
+        encoded += abc.charAt(
+          (abc.indexOf(character) + abc.indexOf(keycharacter)) % abc.length
+        );
+      } else {
+        encoded += character;
+      }
+    }
+    return encoded;
+  };
+  
+  this.decode = function (str) {
+    let decoded = "";
+    for (let i = 0; i < str.length; i++) {
+      let secretcharacter = str[i];
+      let keycharacter = key[i % key.length];
+      if (abc.includes(secretcharacter)) {
+        let index =
+          (abc.indexOf(secretcharacter) +
+            abc.length -
+            abc.indexOf(keycharacter)) %
+          abc.length;
+        let character = abc[index];
+        decoded += character;
+      } else {
+        decoded += secretcharacter;
+      }
+    }
+    return decoded;
+  };
+  
+}
