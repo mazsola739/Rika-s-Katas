@@ -70,3 +70,42 @@ It is assumed that the generator format is always right. Therefore, no need to c
 
 //My solution
 
+function range(start, end, step = 1) {
+  if (start > end) {
+    step = -step;
+  }
+  const length = Math.floor(Math.abs((end - start) / step)) + 1;
+  return Array.from(Array(length), (x, index) => start + index * step);
+}
+
+function ArrayComprehension(options) {
+  let result = [],
+    arrayFromOptions = `${Object.values(options)}`.trim().split(",");
+
+  for (let i = 0; i < arrayFromOptions.length; i++) {
+    if (arrayFromOptions[i] === "") return [];
+    if (arrayFromOptions.length <= 2 || !`${arrayFromOptions}`.includes(".."))
+      result.push(+arrayFromOptions[i]);
+
+    if (arrayFromOptions[i].includes("..") && arrayFromOptions.length !== 1) {
+      let dotless = arrayFromOptions[i].replace(/\.\./g, " ").split(" ");
+      let first = +arrayFromOptions[0];
+      let last = +dotless[1];
+      let step = Math.abs(+dotless[0] - first);
+      result = range(first, last, step);
+    }
+
+    if (arrayFromOptions.length === 1 && `${arrayFromOptions}`.includes("..")) {
+      let dotless = arrayFromOptions[i].replace(/\.\./g, " ").split(" ");
+      let first = +dotless[0];
+      let last = +dotless[1];
+      if (first < last) {
+        let step = 1;
+        result = range(first, last, step);
+      } else {
+        return [];
+      }
+    }
+  }
+  return result;
+}
