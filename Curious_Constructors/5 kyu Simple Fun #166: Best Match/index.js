@@ -35,3 +35,21 @@ Index of the best match.
 
 //My solution
 
+function bestMatch(ALAHLYGoals, zamalekGoals) {
+  let firstMatch = ALAHLYGoals[0] - zamalekGoals[0],
+    bestMatch = 0,
+    zamalek = zamalekGoals[0];
+  for (let i = 0; i < ALAHLYGoals.length; i++) {
+    let diff = ALAHLYGoals[i] - zamalekGoals[i];
+    if (firstMatch > diff) {
+      firstMatch = diff;
+      zamalek = zamalekGoals[i];
+      bestMatch = i;
+    } else if (diff === firstMatch && zamalekGoals[i] > zamalek) {
+      firstMatch = diff;
+      zamalek = zamalekGoals[i];
+      bestMatch = i;
+    }
+  }
+  return bestMatch;
+}
