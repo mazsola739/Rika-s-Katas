@@ -29,3 +29,38 @@ In this example condition 1 is false and 2, 3, 4 are true. So the return value w
 
 //My solution
 
+function string_evaluation(string, condition) {
+  let boos = [],
+    num1,
+    num2,
+    operand;
+  string = Object.entries(
+    [...string].sort().reduce((el, i) => {
+      el[i] = el[i] ? el[i] + 1 : 1;
+      return el;
+    }, {})
+  );
+  condition = condition.map((el) => [...el]);
+
+  for (let i = 0; i < string.length; i++) {
+    for (let j = 0; j < condition.length; j++) {
+      condition[j] = condition[j].map((el) =>
+        el === string[i][0] ? `${string[i][1]}` : el
+      );
+    }
+  }
+  condition = condition
+    .map((el) => el.join(""))
+    .map((el) => {
+      num1 = el.substring(0, 1);
+      (num2 = el.substring(el.length - 1)),
+        (operand = el.substring(1, el.length - 1));
+      if (operand === "==") boos.push(num1 === num2);
+      if (operand === "!=") boos.push(num1 !== num2);
+      if (operand === "<") boos.push(num1 < num2);
+      if (operand === ">") boos.push(num1 > num2);
+      if (operand === "<=") boos.push(num1 <= num2);
+      if (operand === ">=") boos.push(num1 >= num2);
+    });
+  return boos;
+}
