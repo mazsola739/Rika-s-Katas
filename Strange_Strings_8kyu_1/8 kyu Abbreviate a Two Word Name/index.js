@@ -20,3 +20,7 @@ function abbrevName(name) {
   let firstLetters = name.map((x) => x[0]);
   return firstLetters.join(".").toUpperCase();
 }
+
+//refactor
+
+const abbrevName = name => name.split(' ').map(el => el[0].toUpperCase()).join('.')
