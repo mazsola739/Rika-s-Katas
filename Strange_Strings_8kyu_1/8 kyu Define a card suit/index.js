@@ -28,3 +28,8 @@ function defineSuit(card) {
     ? "hearts"
     : "spades";
 }
+
+
+//refactor
+
+const defineSuit = card => card.includes("♣") ? "clubs" : card.includes("♦") ? "diamonds": card.includes("♥") ? "hearts" : "spades";
