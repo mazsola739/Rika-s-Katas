@@ -12,3 +12,7 @@ nameShuffler('john McClane'); => "McClane john"
 function nameShuffler(str) {
   return str.split(" ").reverse().join(" ");
 }
+
+//refactor
+
+const nameShuffler = str => str.split(' ').reverse().join(' ');
