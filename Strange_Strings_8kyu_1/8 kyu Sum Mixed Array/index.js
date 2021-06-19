@@ -14,3 +14,7 @@ function sumMix(x) {
     return a + b;
   });
 }
+
+//refactor
+
+const sumMix = x => x.map(Number).reduce((a, b) => a + b);
